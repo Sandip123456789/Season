@@ -13,6 +13,7 @@ const seasonConfig = {
   },
 };
 
+//** Helper funtion for original funtion */
 const getSeason = (latitude, month) => {
   if (month > 2 && month < 9) {
     return latitude > 0 ? 'Summer' : 'Winter';

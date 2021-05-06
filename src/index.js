@@ -46,9 +46,15 @@ class App extends React.Component {
       (position) => this.setState({ lat: position.coords.latitude }),
       (err) => this.setState({ errorMessage: err.message })
     );
+
+    //** For time */
+    // setInterval(() => {
+    //   this.setState({ time: new Date().toLocaleTimeString() });
+    // }, 1000);
   }
 
-  render() {
+  //** Optional method to render */
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -57,7 +63,11 @@ class App extends React.Component {
       return <SeasonDisplay latitude={this.state.lat} />;
     }
 
-    return <Spinner />;
+    return <Spinner message="Please accept the location request." />;
+  }
+
+  render() {
+    return <div className="border">{this.renderContent()}</div>;
   }
 }
 
