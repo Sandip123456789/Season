@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 // const App = () => {
 //   //** Getting the current location */
@@ -56,7 +57,7 @@ class App extends React.Component {
       return <SeasonDisplay latitude={this.state.lat} />;
     }
 
-    return <div>Loading!</div>;
+    return <Spinner />;
   }
 }
 
